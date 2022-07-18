@@ -1,6 +1,9 @@
 const router = require("express").Router();
+const cors = require("cors");
 const controller = require("./reviews.controller");
 const methodNotAllowed = require("../errors/methodNotAllowed");
+
+router.use(cors());
 
 router
   .route("/:reviewId")
