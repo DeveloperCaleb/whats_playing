@@ -31,8 +31,13 @@ function readUpdatedReview(reviewId) {
     .then(mapReviews);
 }
 
+function destroy(review_id) {
+  return knex("reviews").where({ review_id }).del();
+}
+
 module.exports = {
   read,
   update,
   readUpdatedReview,
+  destroy,
 };

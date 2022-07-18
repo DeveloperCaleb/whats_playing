@@ -36,10 +36,16 @@ async function readUpdatedReview(req, res) {
   res.json({ data });
 }
 
+async function destroy(req, res) {
+  const { reviewId } = req.params;
+  await reviewsServices.destroy(reviewId);
+  res.sendStatus(204);
+}
 module.exports = {
   update: [
     asyncErrorBoundary(reviewExist),
     asyncErrorBoundary(update),
     asyncErrorBoundary(readUpdatedReview),
   ],
+  delete: [asyncErrorBoundary(reviewExist), asyncErrorBoundary(destroy)],
 };

@@ -44,6 +44,10 @@ async function listMovieReviews(req, res) {
 
   const data = await moviesService.listMovieReviews(movieId);
 
+  const formattedData = data.map((review) => {
+    return { critic: "test" };
+  });
+
   res.json({ data });
 }
 

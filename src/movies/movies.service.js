@@ -1,11 +1,4 @@
 const knex = require("../db/connection");
-const reduceProperties = require("../utils/reduce-properties");
-
-const reduceReviews = mapProperties({
-  preferred_name: "critic.preferred_name",
-  surname: "critic.surname",
-  organization_name: "critic.organization_name",
-});
 
 function list() {
   return knex("movies").select("*");
@@ -36,7 +29,20 @@ function listMovieReviews(movieId) {
     .join("reviews as r", "m.movie_id", "r.movie_id")
     .join("critics as c", "r.critic_id", "c.critic_id")
     .select("r.*", "c.*")
-    .where({ "r.movie_id": movieId });
+    .where({ "r.movie_id": movieId })
+    .then((reviews) => {
+      return reviews.map((review) => {
+        return {
+          ...review,
+          critic: {
+            critic_id: review.critic_id,
+            preferred_name: review.preferred_name,
+            surname: review.surname,
+            organization_name: review.organization_name,
+          },
+        };
+      });
+    });
 }
 
 module.exports = {
