@@ -3,7 +3,7 @@
 
 This backend API was created to be used with this [project](https://github.com/DeveloperCaleb/starter-movie-front-end).
 
-The technologies used for this project is Javascript, Node.js, PostgreSQL, and Heroku.
+The technologies used for this project are Javascript, Node.js, PostgreSQL, and Heroku.
 
 [Deployed API](https://fierce-mountain-99742.herokuapp.com/)
 
