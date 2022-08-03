@@ -1,4 +1,4 @@
-<h1>Express API created for the Project_WeLoveMovies Client for the backend capstone assignment.</h1>
+<h1>What's Playing?</h1>
 <br>
 
 This backend API was created to be used with this [project](https://github.com/DeveloperCaleb/starter-movie-front-end).
